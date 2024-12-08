@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Cachorro extends  Animal {
     //atributos
@@ -7,12 +8,27 @@ public class Cachorro extends  Animal {
     boolean se_aquatico;
     boolean se_terrestre;
     //construtor
-    public  Cachorro(String nome, String raca, String cor,String tmh,int qntsPatas, boolean  e_Adestrado, boolean se_voador, boolean se_aquatico, boolean se_terrestre,String tipo_valido){
+    public  Cachorro(String nome, String raca, String cor,String tmh,int qntsPatas, boolean  e_Adestrado, boolean se_voador, boolean se_aquatico, boolean se_terrestre){
         super(nome, raca, cor, tmh, qntsPatas, se_voador, se_aquatico, se_terrestre);
-                this.tipo_latido = tipo_latido;
-                this.e_Adestrado = e_Adestrado;}
+           while (true) {  // Laço para pedir ao usuário até que insira um valor válido
+            if (tipo_latido == null || tipo_latido.isEmpty()) {
+                // Se o valor for nulo ou vazio, pedimos ao usuário para digitar novamente
+                System.out.println("Por favor, insira o tipo de latido (ALTO, MÉDIO ou SUAVE):");
+                tipo_latido = new Scanner(System.in).nextLine();
+            } else {
+                tipo_latido = tipo_latido.toUpperCase(); // Converter para maiúsculas para evitar problemas com case
+                if (tipo_latido.equals("ALTO") || tipo_latido.equals("MÉDIO") || tipo_latido.equals("SUAVE")) {
+                    break;  // Se for válido, saímos do laço
+                } 
+            }
+        }
+        this.e_Adestrado = e_Adestrado;
+            
+            }
            //metodos
- 
+            public String getipo_latido(){
+                return tipo_latido;
+            }
            
            @Override
            public String toString() {
@@ -49,13 +65,10 @@ public class Cachorro extends  Animal {
                switch (tipo_latido) {
                    case "ALTO":
                        return "Rooof Rooof!";
-                   case "MÉDIO":
+                   case "MEDIO":
                        return "Woof Woof!";
                    default:
                        return "au au!";
                }
            }
-           
-           
-
 }
