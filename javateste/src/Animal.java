@@ -104,6 +104,10 @@ public class Animal {
      public String terrestre() {
         return "Animal corre";
      }
+    public String getTipoLatido() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getTipoLatido'");
+    }
 }
 
     

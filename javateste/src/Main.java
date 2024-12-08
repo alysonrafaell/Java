@@ -62,7 +62,10 @@ public class Main {
 
                     // Criar o objeto Cachorro
                     animal = new Cachorro(nomeCachorro, racaCachorro, corCachorro, tmhCachorro, qntsPatasCachorro, eAdestrado, false, false, true);
-                    break;
+                        // Exibir o tipo de latido do cachorro
+        System.out.println("O tipo de latido do cachorro é: " + animal.
+        getTipoLatido());
+
 
                 case 3:  // Exibir informações
                     if (animal != null) {

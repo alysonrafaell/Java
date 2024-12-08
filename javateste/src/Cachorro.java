@@ -3,32 +3,29 @@ import java.util.Scanner;
 public class Cachorro extends  Animal {
     //atributos
     boolean e_Adestrado;
-    String tipo_latido;//ALTO, MÉDIO E SUAVE
+    String tipoLatido;//ALTO, MÉDIO E SUAVE
     boolean se_voador;
     boolean se_aquatico;
     boolean se_terrestre;
     //construtor
     public  Cachorro(String nome, String raca, String cor,String tmh,int qntsPatas, boolean  e_Adestrado, boolean se_voador, boolean se_aquatico, boolean se_terrestre){
         super(nome, raca, cor, tmh, qntsPatas, se_voador, se_aquatico, se_terrestre);
-           while (true) {  // Laço para pedir ao usuário até que insira um valor válido
-            if (tipo_latido == null || tipo_latido.isEmpty()) {
-                // Se o valor for nulo ou vazio, pedimos ao usuário para digitar novamente
-                System.out.println("Por favor, insira o tipo de latido (ALTO, MÉDIO ou SUAVE):");
-                tipo_latido = new Scanner(System.in).nextLine();
-            } else {
-                tipo_latido = tipo_latido.toUpperCase(); // Converter para maiúsculas para evitar problemas com case
-                if (tipo_latido.equals("ALTO") || tipo_latido.equals("MÉDIO") || tipo_latido.equals("SUAVE")) {
-                    break;  // Se for válido, saímos do laço
-                } 
-            }
-        }
-        this.e_Adestrado = e_Adestrado;
-            
-            }
-           //metodos
-            public String getipo_latido(){
-                return tipo_latido;
-            }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Por favor, insira o tipo de latido (ALTO, MÉDIO ou SUAVE):");
+        tipoLatido = scanner.nextLine().toUpperCase();  // Coloca a entrada em maiúsculas para evitar problemas com case
+
+        // Validação do tipo de latido usando if/else
+        if (tipoLatido.equals("ALTO") || tipoLatido.equals("MÉDIO") || tipoLatido.equals("SUAVE")) {
+            // Se a entrada for válida, o tipo de latido é aceito
+            System.out.println("Tipo de latido válido.");
+        } 
+    }
+
+    // Método para retornar o tipo de latido
+    public String getTipoLatido() {
+        return tipoLatido;
+    }
+
            
            @Override
            public String toString() {
@@ -62,7 +59,7 @@ public class Cachorro extends  Animal {
            }
            
            public String latir() {
-               switch (tipo_latido) {
+               switch (tipoLatido) {
                    case "ALTO":
                        return "Rooof Rooof!";
                    case "MEDIO":
